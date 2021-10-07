@@ -1,0 +1,17 @@
+# 1e-10 = 0.0000000001
+
+def function(x):
+    a = 1e-10
+    sum = float(1)
+    i = 1
+    temp = float(x)
+    while (temp > a):
+        sum += temp
+        i += 1
+        temp *= (x/i)
+    return sum
+
+x = int(input("Nhập x: "))
+print('e^x = %f' %function(x))
+
+
