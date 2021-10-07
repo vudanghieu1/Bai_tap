@@ -1,1 +1,25 @@
+day, month, year = list(map(int, input('Enter day, month, year: ').split('/')))
 
+def check_year(y):
+    return True if (year % 4 == 0 and year % 100 != 0) or year % 400 == 0 else False
+
+def check_day(m,y):
+    return 30 if m in thang_thieu else 31 if m in thang_du else 29 if m == 2 and check_year(y) == True else 28
+
+def check(d,m,y):
+    return 0 < d <= check_day(month,year) and 0 < m < 13 and y > 0
+
+thang_thieu = [4, 6, 9, 11]
+thang_du = [1,3,5,7,8,10,12]
+if check(day,month,year):
+    if day < check_day(month,year):
+        day += 1
+    elif month != 12:
+        day = 1
+        month += 1
+    else:
+        day = month = 1
+        year += 1
+    print('The next day: %d/%d/%d'%(day, month, year))
+else:
+    print("Wrong input!")
