@@ -1,0 +1,4 @@
+s = 0
+for i in input('Nhập n: '):
+    s += int(i)
+print('Tổng các chữ số trong n: ', s)
